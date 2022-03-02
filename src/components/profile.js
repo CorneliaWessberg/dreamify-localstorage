@@ -1,6 +1,7 @@
 import React from "react";
 
 function Profile() {
+  //hämtar user data ifrån localstorage
   const username = localStorage.getItem("username").replace(/"/g, "");
   const email = localStorage.getItem("userEmail").replace(/"/g, "");
   const pass = localStorage.getItem("userPassword").replace(/"/g, "");

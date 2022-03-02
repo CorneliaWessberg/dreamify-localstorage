@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
+  //hooks för inputs, username och password
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  //hooks för om det lyckas och för error
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-
+  //för att kunna navigera till annan komponent
   const history = useNavigate();
 
+  //hämtar info från localstorage, kollar så alla fälten är ifyllda och om det matchar user
+  //Skickas till profil-sida vid lyckad inloggning
   function handleLogin(e) {
     e.preventDefault();
     let pass = localStorage.getItem("userPassword").replace(/"/g, "");
@@ -26,11 +30,10 @@ function Login() {
       window.location.reload();
     }
   }
+  
   return (
     <>
-      {success ? (
-        <h2>You are now logged in!</h2>
-      ) : (
+      (
         <div class="login">
           <h1>Welcome back!</h1>
 
@@ -59,7 +62,7 @@ function Login() {
             Not a member yet? :) Register <Link to="/register">Here</Link>
           </p>
         </div>
-      )}
+      )
     </>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
+  //hämtar token ifrån localstorage, history för att kunna navigera till allan component
   const token = localStorage.getItem("loggedIn", "token");
   const history = useNavigate();
 
@@ -9,7 +10,7 @@ function Header() {
     localStorage.clear();
     history("/");
   }
-
+  //conditional rendering i meny beroende på om man är inloggad eller inte
   return (
     <>
       <div class="header">

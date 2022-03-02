@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Register() {
+  //hooks för värdena i inputfälten
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  //hooks för om det lyckas och för error
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
 
+  //checkar så alla fälten är ifyllda, sparar user data i localStorage
   function handleFormSubmit(e) {
     e.preventDefault();
 
@@ -23,7 +26,7 @@ function Register() {
       setSuccess(true);
     }
   }
-
+//conditional rendering om registrering lyckades
   return (
     <>
       {success ? (
